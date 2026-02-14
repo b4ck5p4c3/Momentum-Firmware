@@ -1,0 +1,18 @@
+name: Build Geek Zero
+on: [push, workflow_dispatch]
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v4
+            with:
+              submodules: recursive
+  
+          - name: Build firmware
+            run: ./fbt updater_package
+  
+          - uses: actions/upload-artifact@v4
+            with:
+              name: geek-zero-firmware
+              path: dist/f7-*/flipper-z-f7-update-*
