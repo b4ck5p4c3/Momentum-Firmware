@@ -207,8 +207,6 @@ void u8x8_d_st756x_init(u8x8_t* u8x8, uint8_t contrast, uint8_t regulation_ratio
     u8x8_cad_SendArg(u8x8, contrast);
     // Enable power
     u8x8_cad_SendCmd(u8x8, ST756X_CMD_POWER_CONTROL | 0b111);
-    // Geek Zero clone: invert display polarity
-    u8x8_cad_SendCmd(u8x8, ST756X_CMD_INVERSE_DISPLAY | 0b1);
 
     u8x8_cad_EndTransfer(u8x8);
 }
